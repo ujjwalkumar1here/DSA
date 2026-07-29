@@ -1,0 +1,27 @@
+# Maximum Average Subarray I
+
+Approach
+
+Step 1
+Calculate the sum of the first k elements.
+
+Step 2
+Store this sum as the maximum sum.
+
+Step 3
+Slide the window one element at a time.
+
+Step 4
+For each new window, subtract the element leaving the window and add the new element entering the window.
+
+Step 5
+Update the maximum sum.
+
+Step 6
+Return the maximum average by dividing the maximum sum by k.
+
+Time Complexity
+O(n)
+
+Space Complexity
+O(1)

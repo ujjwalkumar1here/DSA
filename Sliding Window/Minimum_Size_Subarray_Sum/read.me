@@ -1,0 +1,30 @@
+# Minimum Size Subarray Sum
+
+Approach
+
+Step 1
+Initialize left pointer, current sum, and minimum length.
+
+Step 2
+Traverse the array using the right pointer and add each element to the current sum.
+
+Step 3
+When the current sum becomes greater than or equal to the target, update the minimum length.
+
+Step 4
+Shrink the window by removing the leftmost element and move the left pointer forward.
+
+Step 5
+Repeat until all elements are processed.
+
+Step 6
+If no valid subarray is found, return 0. Otherwise, return the minimum length.
+
+Time Complexity
+O(n)
+
+Space Complexity
+O(1)
+
+
+Time Complexity = O(n) because both pointers (left and right) move only in the forward direction. The right pointer visits each element once, and the left pointer also visits each element at most once. Therefore, the total number of pointer movements is at most 2n, which simplifies to O(n).

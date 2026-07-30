@@ -1,0 +1,47 @@
+# Find First and Last Position of Element in Sorted Array
+
+Approach
+
+Step 1
+
+Use Binary Search to find the first occurrence of the target.
+
+Step 2
+
+Whenever the target is found, store the current index in ans.
+
+Step 3
+
+Do not stop after finding the target. Continue searching in the left half by setting right = mid - 1 to check if another occurrence exists before the current index.
+
+Step 4
+
+Repeat the same process to find the last occurrence.
+
+Step 5
+
+Whenever the target is found, store the current index in ans and continue searching in the right half by setting left = mid + 1.
+
+Step 6
+
+Return the first and last occurrence as the answer.
+
+Note
+
+For the first occurrence:
+- Store the current index in ans.
+- Move left by setting right = mid - 1.
+
+For the last occurrence:
+- Store the current index in ans.
+- Move right by setting left = mid + 1.
+
+We do not return immediately after finding the target because there may be another occurrence on the left or right.
+
+Time Complexity
+
+O(log n)
+
+Space Complexity
+
+O(1)

@@ -1,0 +1,27 @@
+# Longest Substring Without Repeating Characters
+
+Approach
+
+Step 1
+Create an array to store the last index of each character and initialize it with -1.
+
+Step 2
+Use two pointers (left and right) to maintain the current window.
+
+Step 3
+If the current character has already appeared inside the current window, move the left pointer to one position after its last occurrence.
+
+Step 4
+Update the last index of the current character.
+
+Step 5
+Calculate the current window length and update the maximum length.
+
+Step 6
+Continue until the right pointer reaches the end of the string.
+
+Time Complexity
+O(n)
+
+Space Complexity
+O(256) ≈ O(1)

@@ -1,0 +1,41 @@
+# Search a 2D Matrix
+
+Approach
+
+Step 1
+
+Use Binary Search on the first element of every row to determine the row in which the target can exist.
+
+Step 2
+
+If the target is smaller than the first element of the first row, return false.
+
+Step 3
+
+After the first binary search ends, return left - 1 because left points to the first row whose first element is greater than the target. Therefore, the required row is the previous row.
+
+Step 4
+
+Perform another Binary Search on the identified row.
+
+Step 5
+
+If the target is found, return true. Otherwise, return false.
+
+Note
+
+First Binary Search:
+- Search on the first element of every row.
+- After the loop ends, left points to the first row whose first element is greater than the target.
+- Hence, the correct row is left - 1.
+
+Second Binary Search:
+- Perform a normal Binary Search on that row.
+
+Time Complexity
+
+O(log m + log n)
+
+Space Complexity
+
+O(1)

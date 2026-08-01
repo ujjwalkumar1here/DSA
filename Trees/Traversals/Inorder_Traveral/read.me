@@ -1,0 +1,125 @@
+# Binary Tree Inorder Traversal (Recursive)
+
+## Problem
+
+Return the inorder traversal of a binary tree.
+
+Traversal Order
+
+Left
+
+↓
+
+Root
+
+↓
+
+Right
+
+---
+
+## Algorithm
+
+1. If root is NULL, return.
+2. Traverse the left subtree.
+3. Visit the current node.
+4. Traverse the right subtree.
+
+---
+
+## Dry Run
+
+Tree
+
+        1
+      /   \
+     2     3
+    / \   / \
+   4   5 6   7
+
+Traversal
+
+4 → 2 → 5 → 1 → 6 → 3 → 7
+
+Output
+
+4 2 5 1 6 3 7
+
+---
+
+## Time Complexity
+
+O(n)
+
+Every node is visited exactly once.
+
+---
+
+## Space Complexity
+
+O(h)
+
+h = Height of the tree
+
+Worst Case: O(n)
+
+Balanced Tree: O(log n)
+
+---
+
+## Important Points
+
+✅ Base Case
+
+```cpp
+if(root == NULL)
+    return;
+```
+
+✅ Pass vector by reference
+
+```cpp
+vector<int>& ans
+```
+
+No extra copy is created.
+
+✅ Inorder means
+
+Left
+
+↓
+
+Root
+
+↓
+
+Right
+
+---
+
+## Pattern
+
+```cpp
+inorder(left);
+
+Visit Root;
+
+inorder(right);
+```
+
+---
+
+## Difference
+
+Preorder
+
+Root → Left → Right
+
+Inorder
+
+Left → Root → Right
+
+Postorder
+
+Left → Right → Root

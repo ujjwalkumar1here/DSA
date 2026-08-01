@@ -1,0 +1,75 @@
+# Binary Tree Level Order Traversal (BFS)
+
+## Order
+
+Level by Level
+
+Uses **Queue (BFS)**.
+
+---
+
+## Algorithm
+
+1. If root is NULL, return.
+2. Push root into the queue.
+3. While queue is not empty:
+   - Store queue size.
+   - Process exactly `size` nodes.
+   - Push left child.
+   - Push right child.
+4. Store the current level in the answer.
+
+---
+
+## Dry Run
+
+Tree
+
+        3
+      /   \
+     9     20
+          /  \
+         15   7
+
+Output
+
+[
+ [3],
+ [9,20],
+ [15,7]
+]
+
+---
+
+## Time Complexity
+
+O(n)
+
+## Space Complexity
+
+O(n)
+
+---
+
+## Important Points
+
+- Use **Queue** for BFS.
+- Store `size = q.size()` before the loop.
+- Use **two separate `if` statements** for left and right child.
+- Never use `else if`.
+
+---
+
+## Pattern
+
+```cpp
+while(!q.empty())
+{
+    int size = q.size();
+
+    for(int i = 0; i < size; i++)
+    {
+        // Process current level
+    }
+}
+```

@@ -1,0 +1,376 @@
+# Preorder Traversal (Recursive)
+
+LeetCode 144
+
+----------------------------------------------------
+
+Problem
+
+Return the preorder traversal of a binary tree.
+
+Preorder Order
+
+Root
+
+↓
+
+Left
+
+↓
+
+Right
+
+----------------------------------------------------
+
+Tree Used
+
+        1
+      /   \
+     2     3
+    / \   / \
+   4   5 6   7
+
+----------------------------------------------------
+
+Traversal
+
+Visit Root
+
+↓
+
+Go Left
+
+↓
+
+Go Right
+
+Answer
+
+1 2 4 5 3 6 7
+
+----------------------------------------------------
+
+Algorithm
+
+Step 1
+
+If root is NULL,
+
+return.
+
+----------------------------------------------------
+
+Step 2
+
+Visit the current node.
+
+ans.push_back(root->val);
+
+----------------------------------------------------
+
+Step 3
+
+Traverse the left subtree.
+
+preorder(root->left, ans);
+
+----------------------------------------------------
+
+Step 4
+
+Traverse the right subtree.
+
+preorder(root->right, ans);
+
+----------------------------------------------------
+
+Dry Run
+
+Tree
+
+        1
+      /   \
+     2     3
+    / \   / \
+   4   5 6   7
+
+Call
+
+preorder(1)
+
+Visit
+
+1
+
+Answer
+
+1
+
+↓
+
+Go Left
+
+preorder(2)
+
+Visit
+
+2
+
+Answer
+
+1 2
+
+↓
+
+Go Left
+
+Visit
+
+4
+
+Answer
+
+1 2 4
+
+↓
+
+Left NULL
+
+Return
+
+↓
+
+Right NULL
+
+Return
+
+↓
+
+Back to Node 2
+
+↓
+
+Visit Right
+
+5
+
+Answer
+
+1 2 4 5
+
+↓
+
+Back to Node 1
+
+↓
+
+Go Right
+
+Visit
+
+3
+
+Answer
+
+1 2 4 5 3
+
+↓
+
+Visit
+
+6
+
+Answer
+
+1 2 4 5 3 6
+
+↓
+
+Visit
+
+7
+
+Answer
+
+1 2 4 5 3 6 7
+
+----------------------------------------------------
+
+Time Complexity
+
+O(n)
+
+Reason
+
+Every node is visited exactly once.
+
+----------------------------------------------------
+
+Space Complexity
+
+O(h)
+
+where
+
+h = height of tree
+
+Worst Case
+
+O(n)
+
+(Skew Tree)
+
+Balanced Tree
+
+O(log n)
+
+----------------------------------------------------
+
+Why Pass Vector By Reference?
+
+Correct
+
+vector<int>& ans
+
+Reason
+
+Every recursive call uses the same vector.
+
+No copy is created.
+
+----------------------------------------------------
+
+If Passed By Value
+
+vector<int> ans
+
+Each recursive call creates a new copy.
+
+Changes are lost after the function returns.
+
+Copying also increases the time complexity.
+
+----------------------------------------------------
+
+Recursive Template
+
+void dfs(TreeNode* root, vector<int>& ans)
+{
+    if(root == NULL)
+        return;
+
+    // Work
+
+    dfs(root->left, ans);
+
+    dfs(root->right, ans);
+}
+
+----------------------------------------------------
+
+Pattern Learned
+
+Tree Traversal
+
+Recursive DFS
+
+----------------------------------------------------
+
+Remember
+
+Preorder
+
+Root
+
+↓
+
+Left
+
+↓
+
+Right
+
+----------------------------------------------------
+
+Difference Between Traversals
+
+Preorder
+
+Root Left Right
+
+Inorder
+
+Left Root Right
+
+Postorder
+
+Left Right Root
+
+----------------------------------------------------
+
+Important Interview Points
+
+1.
+
+Always write the base case first.
+
+if(root == NULL)
+    return;
+
+----------------------------------------------------
+
+2.
+
+Pass vector by reference.
+
+vector<int>& ans
+
+----------------------------------------------------
+
+3.
+
+Preorder means visit the root before recursive calls.
+
+----------------------------------------------------
+
+4.
+
+Each node is visited exactly once.
+
+Time Complexity = O(n)
+
+----------------------------------------------------
+
+5.
+
+Recursive stack space depends on the height of the tree.
+
+----------------------------------------------------
+
+Pattern Recognition
+
+If the question says
+
+"Visit Root before children"
+
+↓
+
+Think
+
+Preorder Traversal.
+
+----------------------------------------------------
+
+Related Questions
+
+LeetCode 94
+
+Binary Tree Inorder Traversal
+
+LeetCode 145
+
+Binary Tree Postorder Traversal
+
+LeetCode 102
+
+Binary Tree Level Order Traversal

@@ -1,0 +1,123 @@
+# Binary Tree Postorder Traversal (Recursive)
+
+## Problem
+
+Return the postorder traversal of a binary tree.
+
+Traversal Order
+
+Left
+
+↓
+
+Right
+
+↓
+
+Root
+
+----------------------------------------
+
+## Algorithm
+
+1. If root is NULL, return.
+2. Traverse the left subtree.
+3. Traverse the right subtree.
+4. Visit the current node.
+
+----------------------------------------
+
+## Dry Run
+
+Tree
+
+        1
+      /   \
+     2     3
+    / \   / \
+   4   5 6   7
+
+Traversal
+
+4 → 5 → 2 → 6 → 7 → 3 → 1
+
+Output
+
+4 5 2 6 7 3 1
+
+----------------------------------------
+
+## Time Complexity
+
+O(n)
+
+Every node is visited once.
+
+----------------------------------------
+
+## Space Complexity
+
+O(h)
+
+h = Height of the tree
+
+Worst Case : O(n)
+
+Balanced Tree : O(log n)
+
+----------------------------------------
+
+## Pattern
+
+postorder(left);
+
+postorder(right);
+
+Visit Root;
+
+----------------------------------------
+
+## Important Points
+
+✅ Base Case
+
+```cpp
+if(root == NULL)
+    return;
+```
+
+✅ Pass vector by reference
+
+```cpp
+vector<int>& ans
+```
+
+No extra copy is created.
+
+✅ Postorder means
+
+Left
+
+↓
+
+Right
+
+↓
+
+Root
+
+----------------------------------------
+
+## Traversal Difference
+
+Preorder
+
+Root → Left → Right
+
+Inorder
+
+Left → Root → Right
+
+Postorder
+
+Left → Right → Root

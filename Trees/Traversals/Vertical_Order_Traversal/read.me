@@ -1,0 +1,158 @@
+# Vertical Order Traversal (LeetCode 987)
+
+## Idea
+
+Assign every node
+
+- Row
+- Column
+
+Root
+
+Row = 0
+
+Column = 0
+
+Left Child
+
+Row + 1
+
+Column - 1
+
+Right Child
+
+Row + 1
+
+Column + 1
+
+---------------------------------------
+
+## Data Structure
+
+```cpp
+map<int, map<int, multiset<int>>> nodes;
+```
+
+Meaning
+
+```
+Column
+   ↓
+Row
+   ↓
+Sorted Values
+```
+
+---------------------------------------
+
+## Queue
+
+```cpp
+queue<pair<TreeNode*, pair<int,int>>> q;
+```
+
+Stores
+
+```
+Node
+
+Column
+
+Row
+```
+
+---------------------------------------
+
+## Algorithm
+
+1. Push root with (0,0).
+2. Perform BFS.
+3. Store each node using
+
+```cpp
+nodes[col][row].insert(node->val);
+```
+
+4. Left child
+
+```
+Column - 1
+
+Row + 1
+```
+
+5. Right child
+
+```
+Column + 1
+
+Row + 1
+```
+
+6. Traverse the map and build the answer.
+
+---------------------------------------
+
+## Example
+
+Tree
+
+        3
+      /   \
+     9     20
+          /  \
+         15   7
+
+Coordinates
+
+        3 (0,0)
+
+   9(-1,1)   20(1,1)
+
+      15(0,2)  7(2,2)
+
+Output
+
+[
+ [9],
+ [3,15],
+ [20],
+ [7]
+]
+
+---------------------------------------
+
+## Time Complexity
+
+O(n log n)
+
+---------------------------------------
+
+## Space Complexity
+
+O(n)
+
+---------------------------------------
+
+## Important Points
+
+✅ Use BFS (Queue)
+
+✅ Store Column and Row
+
+✅ Use map to keep columns sorted
+
+✅ Use multiset to sort nodes having same row and column
+
+---------------------------------------
+
+## Pattern
+
+Tree + BFS + Coordinates + Map
+
+Used in
+
+- Vertical Traversal
+- Top View
+- Bottom View
+- Vertical Sum

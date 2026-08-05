@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+vector<vector<int>> threeSum(vector<int>& nums)
+{
+    int n = nums.size();
+
+    set<vector<int>> st;
+
+    for(int i = 0; i < n; i++)
+    {
+        unordered_map<int,int> mp;
+
+        for(int j = i + 1; j < n; j++)
+        {
+            int third = -(nums[i] + nums[j]);
+
+            if(mp.find(third) != mp.end())
+            {
+                vector<int> temp = {nums[i], nums[j], third};
+
+                sort(temp.begin(), temp.end());
+
+                st.insert(temp);
+            }
+
+            mp[nums[j]] = j;
+        }
+    }
+
+    return vector<vector<int>>(st.begin(), st.end());
+}
+
+int main()
+{
+    vector<int> nums = {-1, 0, 1, 2, -1, -4};
+
+    vector<vector<int>> ans = threeSum(nums);
+
+    cout << "Triplets are:\n";
+
+    for(auto triplet : ans)
+    {
+        for(int x : triplet)
+        {
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
